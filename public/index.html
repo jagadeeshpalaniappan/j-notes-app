@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <title>J-Notes</title>
+    <link rel="manifest" href="manifest.json">
+    <!-- Older Chrome configuration -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Notes">
+    <link rel="icon"
+          sizes="192x192"
+          href="./note-app-elements/images/icon-4x.png">
+
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+
+    <!-- Web Components polyfill :: enabling your web components to have near full fidelity functionality on all browsers, even if they don't support Web Components. -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <!-- Web Animations polyfill ::  enabling near full fidelity support for the emerging Web Animations platform specifications, even if they are not supported in the current browser. -->
+    <script src="bower_components/web-animations-js/web-animations.min.js"></script>
+
+    <!-- Service Worker:: A component that makes it trivial to configure and activate a service worker for a variety of use cases, using only HTML -->
+    <link rel="import" href="bower_components/platinum-sw/platinum-sw-elements.html">
+
+    <!--A component that makes it trivial to configure and initialize a Firebase app using only HTML. -->
+    <link rel="import" href="bower_components/polymerfire/firebase-app.html">
+    <link rel="import" href="note-app.html">
+</head>
+
+<body>
+
+<!-- Service Worker -->
+<platinum-sw-register
+        auto-register
+        skip-waiting
+        clients-claim
+        reload-on-install
+        href="sw-import.js">
+    <platinum-sw-cache
+            default-cache-strategy="networkFirst">
+    </platinum-sw-cache>
+</platinum-sw-register>
+
+
+<firebase-app
+        name="jnotes"
+        api-key="AIzaSyBiZ6c-Y85htf9GSgpkvK6CPi4vQWprw1o"
+        auth-domain="jnotes-e37ba.firebaseapp.com"
+        database-url="https://jnotes-e37ba.firebaseio.com">
+</firebase-app>
+
+<note-app></note-app>
+
+</body>
+
+</html>
