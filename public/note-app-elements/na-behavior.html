@@ -67,18 +67,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         if (this.$.query && this.$.query.refresh) {
           changeCommits.then(function() {
+
+            console.log("this.$.query.refresh");
+
             this.$.query.refresh();
           }.bind(this));
         }
+
+
       },
 
       save: function() {
+
+        console.log("b4--firebase--save");
+        console.log("notesPath:: "+this.notesPath);
+
         if (this.$.document.isNew &&
             (this.editableNote.title ||
              this.editableNote.body)) {
+
+          console.log(this.editableNote);
+
           return this.$.document.save(this.notesPath).then(function() {
             this.$.document.reset();
           }.bind(this));
+
         }
 
         return Promise.resolve();
@@ -86,6 +99,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       delete: function() {
         if (!this.$.document.isNew) {
+
+          console.log(this.editableNote);
           this.$.document.destroy();
         }
 

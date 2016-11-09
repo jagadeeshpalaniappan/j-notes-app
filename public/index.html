@@ -34,7 +34,7 @@
 
 <body>
 
-<!-- Service Worker -->
+<!-- Service Worker:: For Offline App Access -->
 <platinum-sw-register
         auto-register
         skip-waiting
@@ -47,6 +47,8 @@
 </platinum-sw-register>
 
 
+
+<!-- Firebase App -->
 <firebase-app
         name="jnotes"
         api-key="AIzaSyBiZ6c-Y85htf9GSgpkvK6CPi4vQWprw1o"
@@ -54,7 +56,12 @@
         database-url="https://jnotes-e37ba.firebaseio.com">
 </firebase-app>
 
+
+
+<!-- Note App -->
 <note-app></note-app>
+
+
 
 </body>
 

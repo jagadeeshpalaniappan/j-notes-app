@@ -47,15 +47,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       }
     </style>
+
+
     <iron-icon icon="bookmark"></iron-icon>
-    <h1>Notes</h1>
+    <h1>JNotes</h1>
+
     <iron-icon icon="cloud" hidden$="[[!online]]"></iron-icon>
     <iron-icon icon="cloud-off" hidden$="[[online]]"></iron-icon>
+
     <paper-icon-button
         icon="[[computeLockIcon(signedIn)]]"
         disabled="[[!signedIn]]"
         on-tap="lock">
     </paper-icon-button>
+
+
   </template>
   <script>
     Polymer({

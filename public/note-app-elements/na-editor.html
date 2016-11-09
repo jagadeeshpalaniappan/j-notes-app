@@ -79,12 +79,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opacity: 1;
       }
     </style>
+
+
     <div id="background"></div>
     <na-note id="note" title="{{note.title}}" body="{{note.body}}" editable></na-note>
     <div class="controls">
       <paper-button on-tap="delete">Delete</paper-button>
       <paper-button on-tap="save">Done</paper-button>
     </div>
+
+
+
   </template>
   <script>
     Polymer({
@@ -190,6 +195,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           animation.addEventListener('finish', resolve);
         }.bind(this));
       }
+
+
     });
   </script>
 </dom-module>
